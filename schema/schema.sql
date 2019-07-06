@@ -27,17 +27,7 @@ CREATE TABLE school_repay_info (
     repay_rate_firstgen DECIMAL,
 );
 
-CREATE TABLE school_repay_info (
-    year INT NOT NULL,
-    unitid INT NOT NULL,
-    inst_name VARCHAR(255) NOT NULL,
-    state_name VARCHAR(255) NOT NULL,
-    years_since_entering_repay INTEGER,
-    repay_rate_lowincome DECIMAL,
-    repay_rate_midincome DECIMAL,
-    repay_rate_highincome DECIMAL,
-    repay_rate_firstgen DECIMAL,
-);
+
 
 
 --"unitid","Unit ID number","Unique identification number of the institution in the Integrated Postsecondary Education Data System."

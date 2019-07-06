@@ -18,11 +18,15 @@
   },
   "homepage": "https://github.com/dburnet3/Project2#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
     "handlebars": "^4.1.2",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.9.0"
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.9.4"
   },
   "devDependencies": {
     "sequelize-cli": "^5.5.0"
