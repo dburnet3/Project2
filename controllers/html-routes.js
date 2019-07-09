@@ -8,18 +8,12 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
-          res.redirect("/survey");
+          res.redirect("/dashboard");
         }
-        res.sendFile(path.join(__dirname, "../public/temp_SignUp.html"));
+        res.sendFile(path.join(__dirname, "../public/dashboard.html"));
       });
 
-      app.get("/login", function(req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-          res.redirect("/members");
-        }
-        res.sendFile(path.join(__dirname, "../public/login.html"));
-      });
+     
 
 }
 module.exports = router;
