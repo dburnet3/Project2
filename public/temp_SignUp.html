@@ -7,94 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+   
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
-        <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
-        </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
- 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
- <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
-
- <!-- Add Firebase products that you want to use -->
- <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
- <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
-
- <script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyB0Jwj_4_wlKPaAdFo_WwF4mOLus-1U8KA",
-    authDomain: "firstgen-a8247.firebaseapp.com",
-    databaseURL: "https://firstgen-a8247.firebaseio.com",
-    projectId: "firstgen-a8247",
-    storageBucket: "",
-    messagingSenderId: "582257857473",
-    appId: "1:582257857473:web:7ddcd69979db38c1"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-<script>
-    function handleSignUp() {
-      var email = document.getElementById('email-input').value;
-      var password = document.getElementById('password-input').value;
-      if (email.length < 4) {
-        alert('Please enter an email address.');
-        return;
-      }
-      if (password.length < 4) {
-        alert('Please enter a password.');
-        return;
-      }
-      // Sign in with email and pass.
-      // [START createwithemail]
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode == 'auth/weak-password') {
-          alert('The password is too weak.');
-        } else {
-          alert(errorMessage);
-        }
-        console.log(error);
-        // [END_EXCLUDE]
-      });
-    }
-</script>
-
+    <div id="app">
+        <input type="email" id="txtEmail" placeholder="Enter email" /> <br/>
+        <input type="password" id="txtPassword" placeholder="Enter password" /><br/>
+        <button id="btnLogin" >Log in</button>
+        <button id="btnSignUp" >Sign Up</button>
+        <button id="btnLogOut" class="hide" >Log Out</button>
+    </div>  
+    <div id="results"></div>
+    <script type="text/javascript" src="./js/auth.js"></script> 
 </body>
 
 </html>
