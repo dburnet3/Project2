@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <a href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></a>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 </head>
 
 <style>
@@ -18,7 +19,7 @@
     padding-bottom: 160px;
     background-image: url("../images/undraw_book_lover_mkck.svg");
     background-size:35%;
-    background-position: 25% 30%;
+    background-position: 25% 50%;
     background-repeat: no-repeat;
 }
 
@@ -106,6 +107,26 @@ p {
     flex-basis: 50px;
 }
 
+.flex-col-50._options {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 19px 0px 19px 22px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-basis: 50px;
+    -ms-flex-preferred-size: 50px;
+    flex-basis: 50px;
+    margin-top:15%;
+}
+
 .demo-form-block {
     display: block;
     max-width: 415px;
@@ -117,6 +138,26 @@ p {
     color: #fff;
 }
 
+.form-check-input {
+ margin-bottom:10px;
+
+}
+
+.form-check-label {
+    color:#073741;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color:#073741;
+}
+
+#next{
+    width: 30px;
+    height:30px;
+}
+
 </style>
 <body>
         <div class="demo-form-content">
@@ -124,22 +165,37 @@ p {
                   <div class="flex-col-50 content">
                     <h1 class="h2 form">Survey</h1>
                     <p class="bodycopy-18">The following questions will help you assess your childs college readiness.  Let's get started!</p>
-                  </div>
-                  <div class="flex-col-50">
+                    <div>
+                            <div class="row">
+                           <img src="./images/next.png" alt="next" id="next">
+                          </div>
+                        </div>  
+                </div>
+                  <div class="flex-col-50 _options">
                     <div class="demo-form-block">
                       <div class="html-embed w-embed w-script">
-                        <!-- [if lte IE 8]>
-          <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2-legacy.js"></script>
-          <![endif] -->
-                        <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2.js"></script>
-                        <script data-hubspot-rendered="true">
-            hbspt.forms.create({
-              portalId: "2142843",
-              formId: "f165a5b4-67cf-4e03-87f4-e739cbf575d9",
-              css: "",
-              sfdcCampaignId: "7010e000001BUXcAAO"
-          });
-          </script><div class="hbspt-form" id="hbspt-form-1562704691716-8588457580"><iframe id="hs-form-iframe-0" class="hs-form-iframe" scrolling="no" height="622" width="415" style="position: static; border: none; display: block; overflow: hidden; width: 415px; height: 622px;"></iframe></div>
+
+                            <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                      Default radio
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      Second default radio
+                                    </label>
+                                  </div>
+                                  <div class="form-check disabled">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                                    <label class="form-check-label" for="exampleRadios3">
+                                      Disabled radio
+                                    </label>
+                                  </div>
+                                <br>
+                                  
+  
                       </div>
                     </div>
                   </div>
