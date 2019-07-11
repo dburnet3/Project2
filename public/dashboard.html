@@ -19,11 +19,24 @@ body{
 img{
     height: 30px;
     width: 30px;
+    margin-right:10px;
   
 }
 
 #choice_1{
     margin-left:10%;
+}
+
+.card-body{
+  width:100%;
+}
+
+.card {
+  width:100%;
+}
+
+#tableau_dashboard{
+  width:80%;
 }
 </style>
 <body>
@@ -127,6 +140,19 @@ img{
                       </div>
                     </div>
                   </div>
+
+                  <div class="card shadow mb-4">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Financially Feasible School Options</h6>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <div class="chart-area">
+                          <canvas id="myAreaChart"></canvas>
+                        </div>
+                      </div>
+                    </div>
                 </div>
     
                 <div class="col-xl-4 col-lg-5">
@@ -137,24 +163,108 @@ img{
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                      <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
-                      </div>
+                      
+                        <div class="card" >
+                            <div class="card-body">
+                              <h5 class="card-title">AfterCollege STEM Inclusion Scholarship</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <div class="large-12 small-12 columns">
+                                  <div class="large-6 small-6 awardAmount awardAmount_deadLineDate_container">
+                                      <strong class="amount">
+                                        <img src="./images/trophy (1).png" alt="award">  
+                                        <span style="color:#000000;">Total:&nbsp;</span>$500
+                                          <span style="color:#000000;">Awards:&nbsp;</span> 4 
+                                      </strong>
+                                  </div>
+                                  <br>
+                                  <div class="large-6 small-6 deadlineDate awardAmount_deadLineDate_container">
+                                      <strong class="deadline">
+                                        <img src="./images/calendar.png" alt="due">  
+                                        <span style="color:#000000;">Deadline:&nbsp;</span>September 30
+                                      </strong>
+                                      <br>
+                                      <a href="https://www.unigo.com/scholarships/merit-based/first-generation-scholarships/aftercollege-stem-inclusion-scholarship/1003907" class="card-link">View Scholarship</a>
+                                  </div>
+                            </div>
+                          </div>
+<hr>
+                          <div class="card-body">
+                              <h5 class="card-title">Sessions College First-Generation Student Scholarship</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <div class="large-12 small-12 columns">
+                                  <div class="large-6 small-6 awardAmount awardAmount_deadLineDate_container">
+                                      <strong class="amount">
+                                        <img src="./images/trophy (1).png" alt="award">  
+                                        <span style="color:#000000;">Total:&nbsp;</span>$3000
+                                          <span style="color:#000000;">Awards:&nbsp;</span> 4 
+                                      </strong>
+                                  </div>
+                                  <br>
+                                  <div class="large-6 small-6 deadlineDate awardAmount_deadLineDate_container">
+                                      <strong class="deadline">
+                                        <img src="./images/calendar.png" alt="due">  
+                                        <span style="color:#000000;">Deadline:&nbsp;</span>October 15
+                                      </strong>
+                                      <br>
+                                      <a href="https://www.unigo.com/scholarships/merit-based/first-generation-scholarships/sessions-college-first-generation-student-scholarship/1003021" class="card-link">View Scholarship</a>
+                                  </div>
+                            </div>
+                          </div>
+
+                          <hr>
+                          <div class="card-body">
+                              <h5 class="card-title">UW-Eau Claire Blugold Promise-Sundstrom Scholarship</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <div class="large-12 small-12 columns">
+                                  <div class="large-6 small-6 awardAmount awardAmount_deadLineDate_container">
+                                      <strong class="amount">
+                                        <img src="./images/trophy (1).png" alt="award">  
+                                        <span style="color:#000000;">Total:&nbsp;</span>$1000
+                                          <span style="color:#000000;">Awards:&nbsp;</span> 1
+                                      </strong>
+                                  </div>
+                                  <br>
+                                  <div class="large-6 small-6 deadlineDate awardAmount_deadLineDate_container">
+                                      <strong class="deadline">
+                                        <img src="./images/calendar.png" alt="due">  
+                                        <span style="color:#000000;">Deadline:&nbsp;</span>December 1
+                                      </strong>
+                                      <br>
+                                      <a href="https://www.unigo.com/scholarships/merit-based/first-generation-scholarships/uw-eau-claire-blugold-promise-sundstrom-scholarship/1004640" class="card-link">View Scholarship</a>
+                                  </div>
+                            </div>
+                          </div>
+
+                          <hr>
+                          <div class="card-body">
+                              <h5 class="card-title">Cynthia E. Morgan Scholarship</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <div class="large-12 small-12 columns">
+                                  <div class="large-6 small-6 awardAmount awardAmount_deadLineDate_container">
+                                      <strong class="amount">
+                                        <img src="./images/trophy (1).png" alt="award">  
+                                        <span style="color:#000000;">Total:&nbsp;</span>$1000
+                                          <span style="color:#000000;">Awards:&nbsp;</span> 1
+                                      </strong>
+                                  </div>
+                                  <br>
+                                  <div class="large-6 small-6 deadlineDate awardAmount_deadLineDate_container">
+                                      <strong class="deadline">
+                                        <img src="./images/calendar.png" alt="due">  
+                                        <span style="color:#000000;">Deadline:&nbsp;</span>February 1
+                                      </strong>
+                                      <br>
+                                      <a href="https://www.unigo.com/scholarships/merit-based/first-generation-scholarships/cynthia-e-morgan-scholarship/4862" class="card-link">View Scholarship</a>
+                                  </div>
+                            </div>
+                          </div>
+
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
     
-
-                  <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                      <h6 class="m-0 font-weight-bold text-primary">Additional Info</h6>
-                    </div>
-                    <div class="card-body">
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, porro? Voluptatem doloremque reprehenderit labore repudiandae. Omnis nulla recusandae, animi vitae vero rerum et similique aliquam, enim, error impedit debitis quod!</p>
- 
-                    </div>
-                  </div>
     
                 </div>
               </div>
