@@ -21,6 +21,7 @@ var config = {
     const pass = txtPassword.value;
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(email, pass);
+    window.location.href = 'dashboard';
     promise.catch(e => console.log('e.message'));
   });
 
@@ -29,6 +30,7 @@ var config = {
     const pass = txtPassword.value;
     const auth = firebase.auth();
     const promise = auth.createUserWithEmailAndPassword(email, pass);
+    window.location.href = 'survey';
     promise.catch(e => console.log('e.message'));
 
 

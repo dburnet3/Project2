@@ -27,8 +27,27 @@ CREATE TABLE school_repay_info (
     repay_rate_firstgen DECIMAL,
 );
 
+CREATE TABLE school_tuition_info (
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    website VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    awards_offered VARCHAR(255) NOT NULL,
+    campus_setting VARCHAR(255) NOT NULL,
+    campus_housing VARCHAR(255) NOT NULL,
+    student_population VARCHAR(255) NOT NULL,
+    undergraduate_students VARCHAR(255) NOT NULL,
+    gradutation_rate VARCHAR(255) NOT NULL,
+    transfer_out_rate VARCHAR(255) NOT NULL,
+    Cohort_year VARCHAR(255) NOT NULL,
+    Net_price VARCHAR(255) NOT NULL,
+    largest_program VARCHAR(255) NOT NULL,
+    IPEDS_ID VARCHAR(255) NOT NULL,
+    OPE_ID VARCHAR(255) NOT NULL,
+    
+)
 
-
+"Undergraduate students","Graduation Rate","Transfer-Out Rate","Cohort Year *","Net Price **","Largest Program","IPEDS ID","OPE ID"
 
 --"unitid","Unit ID number","Unique identification number of the institution in the Integrated Postsecondary Education Data System."
 --"inst_name","Institution (entity) name",""
