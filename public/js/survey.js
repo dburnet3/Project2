@@ -1,18 +1,75 @@
-$(document).ready(function(){
-    $("#next").on('click', survey.startSurvey);
-})
+Survey
+    .StylesManager
+    .applyTheme("default");
 
-var survey = {
-    questions: {
-        q1: 'What is your students ethnicity?',
-        q2: 'What is your students top 3 college choices?',
-        q3: 'Law & Order: What did the creator of Law and Order orginally want to name it?'
-    },
+var json = {
+    title: "Survey.",
+    pages: [
+        {
+            title: "What ethnicity is your student?",
+            questions: [
+                {
+                    type: "checkbox",
+                    name: "Ethnicity",
+                    title: "Ethnicity",
+                    hasOther: true,
+                    isRequired: true,
+                    choices: ["African American", "Latino", "Pacific Islander"]
+                }
+            ]
+        },      {
+            title: "What is your students top 3 college choices?",
+            questions: [
+                {
+                    type: "checkbox",
+                    name: "Choices",
+                    title: "Top College Choices",
+                    hasOther: true,
+                    isRequired: true,
+                    choices: ["Babson College", "Agnes Scott", "Adelphi University"]
+                }
+            ]
+        },    {
+            title: "What does your student plan to major in?",
+            questions: [
+                {
+                    type: "checkbox",
+                    name: "Major",
+                    title: "Selected Major",
+                    hasOther: true,
+                    isRequired: true,
+                    choices: ["Political Science", "Computer Science", "Psychology"]
+                }
+            ]
+        },
+        {
+            title: "What do you think is an acceptable price range for tuition?",
+            questions: [
+                {
+                    type: "checkbox",
+                    name: "Cost",
+                    title: "Tuition Cost",
+                    hasOther: true,
+                    isRequired: true,
+                    choices: ["$5,000 - $10,000", "$10,000 - $15,000", "$15,000+"]
+                }
+            ]
+        },
+        
+    ]
+};
 
-    options: {
+window.survey = new Survey.Model(json);
 
-        q1: ['Black or African American', 'Hispanic or Latino', 'American Indian or Alaska Native'],
-        q2: ['Agnes Scott College', 'Anthropologie', 'Crate & Barrel'],
-        q3: ['NYPD Best', 'Night and Day', 'Cops and Court']
-    }
-}
+// survey
+//     .onComplete
+//     .add(function (result) {
+//         document
+//             .querySelector('#surveyResult')
+//             .textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
+//     });
+
+survey.showProgressBar = 'bottom';
+
+$("#surveyElement").Survey({model: survey});;
+
