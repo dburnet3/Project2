@@ -11,7 +11,7 @@ var bodyParser = require ('body-parser');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse application/json
 app.use(bodyParser.json())
@@ -25,6 +25,9 @@ app.use(bodyParser.json())
 app.use(apiRoutes);
 app.use(htmlRoutes);
 app.use(express.static("public"));
+
+require("./controllers/api-routes");
+require("./controllers/html-routes");
 
 
 

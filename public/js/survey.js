@@ -61,13 +61,19 @@ var json = {
 
 window.survey = new Survey.Model(json);
 
-// survey
-//     .onComplete
-//     .add(function (result) {
-//         document
-//             .querySelector('#surveyResult')
-//             .textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-//     });
+survey
+    .onComplete
+    .add(function (result) {
+
+        $.post("/api/surveyResult", {
+            data: JSON.stringify(result.data)
+        }).then(function (response) {
+        
+        document
+            .querySelector('#surveyResult')
+            .textContent = "Result JSON:\n" + JSON.stringify(result.data);
+        });
+    });
 
 survey.showProgressBar = 'bottom';
 
