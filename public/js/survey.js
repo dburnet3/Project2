@@ -1,3 +1,27 @@
+
+
+// Initialize Cloud Firestore through Firebase
+firebase.initializeApp({
+    apiKey: 'AIzaSyB0Jwj_4_wlKPaAdFo_WwF4mOLus-1U8KA',
+    authDomain: 'firstgen-a8247.firebaseapp.com',
+    projectId: 'firstgen-a8247'
+  });
+  
+  var db = firebase.firestore();
+
+//   db.collection("SurveyResults").add({
+//     Ethnicity: JSON.stringify(data),
+//     Choices:JSON.stringify(data),
+//     Major: JSON.stringify(data),
+//     Cost: JSON.stringify(data)
+// })
+// .then(function(docRef) {
+//     console.log("Document written with ID: ", docRef.id);
+// })
+// .catch(function(error) {
+//     console.error("Error adding document: ", error);
+// });
+
 Survey
     .StylesManager
     .applyTheme("default");
@@ -65,14 +89,36 @@ survey
     .onComplete
     .add(function (result) {
 
-        $.post("/api/surveyResult", {
-            data: JSON.stringify(result.data)
-        }).then(function (response) {
+        db.collection("SurveyResults").add({
+                Ethnicity: JSON.stringify(result.data.Ethnicity),
+                Choices:JSON.stringify(result.data.Choices),
+                Major: JSON.stringify(result.data.Major),
+                Cost: JSON.stringify(result.data.Cost)
+            })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
+
+        // $.post("/api/surveyResult", {
+        //     data: JSON.stringify(result.data)
+        // }).then(function (response) {
         
-        document
-            .querySelector('#surveyResult')
-            .textContent = "Result JSON:\n" + JSON.stringify(result.data);
-        });
+        // document
+        //     .querySelector('#surveyResult')
+        //     .textContent = "Result JSON:\n" + JSON.stringify(result.data);
+        // });
+        db.collection('SurveyResults').get()
+  .then((snapshot) => {
+    snapshot.forEach((doc) => {
+      console.log(doc.id, '=>', doc.data());
+    });
+  })
+  .catch((err) => {
+    console.log('Error getting documents', err);
+  });
     });
 
 survey.showProgressBar = 'bottom';

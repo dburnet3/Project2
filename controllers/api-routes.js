@@ -2,18 +2,27 @@ const router = require("express").Router();
 const db = require("../models");
 
 
-
 router.get("/api/user", async (req, res) => res.json((await db.User.findAll({}))));
 
-// router.post('api/survey', function(req, res ){
+// router.post("/api/surveyResult", function(req, res ){
 //     var jsondata = req.body;
 //     var values = [];
 
 //     for(var i=0; i< jsondata.length; i++)
-//   values.push([jsondata[i].opSystem,jsondata[i].langs,jsondata[i].name,jsondata[i].email]);
+//   values.push([jsondata[i].Ethnicity,jsondata[i].Choices,jsondata[i].Major,jsondata[i].Cost]);
 
-// //Bulk insert using nested array [ [a,b],[c,d] ] will be flattened to (a,b),(c,d)
-// connection.query('INSERT INTO members (opSystem, langs, name, email) VALUES ?', [values], function(err,result) {
+//   db.surveyResult.create({
+//     Ethnicity: req.body,
+//       Choices: req.body,
+//       Major: req.body,
+//       Cost: req.body
+//     })
+//       .then(function(dbsurveyResult) {
+//         res.json(dbsurveyResult);
+//       });
+//   });
+//Bulk insert using nested array [ [a,b],[c,d] ] will be flattened to (a,b),(c,d)
+// connection.query('INSERT INTO surveyResult (Ethnicity, Choices, Major, Cost) VALUES ?', [values], function(err,result) {
 //   if(err) {
 //      res.send('Error');
 //   }
@@ -40,3 +49,4 @@ router.get("/api/user", async (req, res) => res.json((await db.User.findAll({}))
 
 
 module.exports = router;
+
