@@ -21,7 +21,7 @@ var config = {
     const pass = txtPassword.value;
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(email, pass);
-    window.location.href = 'dashboard';
+    // window.location.href = 'dashboard';
     promise.catch(e => console.log('e.message'));
   });
 
@@ -35,9 +35,13 @@ var config = {
 
 
 
-    firebase.auth().onAuthStateChange(user => {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
-          window.location.href = 'dashboard.html';
+        console.log(user);
+        user.getIdToken().then(function(idToken) {  
+          console.log(idToken); 
+       });
+          // window.location.href = 'dashboard.html';
         console.log('U are logged in');
       } else {
         console.log('Not logged in');

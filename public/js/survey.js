@@ -38,7 +38,7 @@ var json = {
                     title: "Ethnicity",
                     hasOther: true,
                     isRequired: true,
-                    choices: ["African American", "Latino", "Pacific Islander"]
+                    choices: ["Black or African American", "Hispanic or Latino", "Native Hawaiian or Pacific Islander", "Asian", "White"]
                 }
             ]
         },      {
@@ -50,19 +50,37 @@ var json = {
                     title: "Top College Choices",
                     hasOther: true,
                     isRequired: true,
-                    choices: ["Babson College", "Agnes Scott", "Adelphi University"]
+                    choices: ["Babson College", "Agnes Scott", "Adelphi University", "Albany State University", "Barnard College", "Barton College", "Averett University", "Auburn University", "Athens State College", "Arcadia University"]
                 }
             ]
         },    {
             title: "What does your student plan to major in?",
             questions: [
                 {
-                    type: "checkbox",
-                    name: "Major",
-                    title: "Selected Major",
+                    type: "radiogroup",
+                    name: "Major_yn",
+                    title: "Does your student know what they want to major in?",
                     hasOther: true,
                     isRequired: true,
-                    choices: ["Political Science", "Computer Science", "Psychology"]
+                    choices: ["Yes", "No"]
+                },
+                {
+                    type: "radiogroup",
+                    name: "Major_selection",
+                    title: "Selected Major",
+                    visibleIf:"{Major_yn}='Yes'",
+                    hasOther: true,
+                    isRequired: true,
+                    choices: ["Political Science", "Computer Science", "Psychology", "Biology", "Nursing", "Mechanical Engineering", "Mathematics", "Communications", "Economics", "History"]
+                },
+                {
+                    type: "radiogroup",
+                    name: "Career",
+                    title: "Your students career path",
+                    visibleIf: "{Major_yn}='Yes'",
+                    hasOther: true,
+                    isRequired: true,
+                    choices: ["Research Assitant", "Social Media Manager", "Software Engineer", "Data Analyst", "Engineer", "Financial Analyst", "Professor", "Registered Nurse", "Chemist"]
                 }
             ]
         },
@@ -75,7 +93,7 @@ var json = {
                     title: "Tuition Cost",
                     hasOther: true,
                     isRequired: true,
-                    choices: ["$5,000 - $10,000", "$10,000 - $15,000", "$15,000+"]
+                    choices: ["$5,000 - $10,000", "$10,000 - $15,000", "$15,000 - $20,000", "20,000 - $25,000", "$25,000+"]
                 }
             ]
         },
@@ -92,7 +110,9 @@ survey
         db.collection("SurveyResults").add({
                 Ethnicity: JSON.stringify(result.data.Ethnicity),
                 Choices:JSON.stringify(result.data.Choices),
-                Major: JSON.stringify(result.data.Major),
+                Major_yn: JSON.stringify(result.data.Major_yn),
+                Major_selection: JSON.stringify(result.data.Major_selection),
+                Career: JSON.stringify(result.data.Major_selection),
                 Cost: JSON.stringify(result.data.Cost)
             })
             .then(function(docRef) {
@@ -111,11 +131,13 @@ survey
         //     .textContent = "Result JSON:\n" + JSON.stringify(result.data);
         // });
         db.collection('SurveyResults').get()
-  .then((snapshot) => {
-    snapshot.forEach((doc) => {
-      console.log(doc.id, '=>', doc.data());
-    });
-  })
+  .then(doc  => {
+    if (!doc.exists) {
+        console.log('No such document!');
+      } else {
+        console.log('Document data:', doc.data());
+      }
+    })
   .catch((err) => {
     console.log('Error getting documents', err);
   });
