@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 
 app.use(apiRoutes);
 app.use(htmlRoutes);
-app.use(express.static("public"));
+app.use(express.static(__dirname + '/public/survey.html'));
 
 require("./controllers/api-routes");
 require("./controllers/html-routes");
