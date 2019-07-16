@@ -32,18 +32,18 @@ router.get("/api/user", async (req, res) => res.json((await db.User.findAll({}))
 // });
 
  // POST route for saving survey results
- router.post("/api/surveyResult", function(req, res) {
-   console.log(req.body);
-    db.surveyResult.create({
-      Ethnicity: req.body.Ethnicity,
-      Choices: req.body.Choices,
-      Major: req.body.Major,
-      Cost: req.body.Cost
-    })
-      .then(function(dbsurveyResult) {
-        res.json(dbsurveyResult);
-      });
-  });
+//  router.post("/api/surveyResult", function(req, res) {
+//    console.log(req.body);
+//     db.surveyResult.create({
+//       Ethnicity: req.body.Ethnicity,
+//       Choices: req.body.Choices,
+//       Major: req.body.Major,
+//       Cost: req.body.Cost
+//     })
+//       .then(function(dbsurveyResult) {
+//         res.json(dbsurveyResult);
+//       });
+//   });
 
 // //GET route for retrieving tuition cost
 // applicationCache.get("/api/schoolTuition/:OPE_ID", function(req,res){
