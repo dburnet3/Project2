@@ -38,6 +38,11 @@ var config = {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log(user);
+        window.localStorage.setItem('surveyResults', JSON.stringify(result.data));
+
+            window.localStorage.getItem('surveyResults');
+
+            console.log(localStorage);
         user.getIdToken().then(function(idToken) {  
           console.log(idToken); 
        });
