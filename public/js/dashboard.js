@@ -26,23 +26,10 @@ var scriptElement = document.createElement('script');
 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
 vizElement.parentNode.insertBefore(scriptElement, vizElement);   
 
-//Query data from local storage
-function findStuff(){
-    if (localStorage["surveyResults"]) {
-        alert("you've got it");
-    }else{
-        alert("nope");
-    }
-    
-}
-
-findStuff();
-
-var school = localStorage.getItem('surveyResults.Choices');
-
-alert(school);
 
 
-//condition: if school name in local storage matches school name in db,
-//pull the school name and associated Tuition cost
+
+
+
 })
+
