@@ -9,31 +9,20 @@ firebase.initializeApp({
   
   var db = firebase.firestore();
 
-//   db.collection("SurveyResults").add({
-//     Ethnicity: JSON.stringify(data),
-//     Choices:JSON.stringify(data),
-//     Major: JSON.stringify(data),
-//     Cost: JSON.stringify(data)
-// })
-// .then(function(docRef) {
-//     console.log("Document written with ID: ", docRef.id);
-// })
-// .catch(function(error) {
-//     console.error("Error adding document: ", error);
-// });
 
+//Survey
 Survey
     .StylesManager
     .applyTheme("default");
 
 var json = {
-    title: "Survey.",
+    title: "Tell us about your student",
     pages: [
         {
             title: "What ethnicity is your student?",
             questions: [
                 {
-                    type: "checkbox",
+                    type: "radiogroup",
                     name: "Ethnicity",
                     title: "Ethnicity",
                     hasOther: true,
@@ -88,12 +77,12 @@ var json = {
             title: "What do you think is an acceptable price range for tuition?",
             questions: [
                 {
-                    type: "checkbox",
+                    type: "radiogroup",
                     name: "Cost",
                     title: "Tuition Cost",
                     hasOther: true,
                     isRequired: true,
-                    choices: ["$5,000 - $10,000", "$10,000 - $15,000", "$15,000 - $20,000", "20,000 - $25,000", "$25,000+"]
+                    choices: ["$5,000 - $10,000", "$10,000 - $15,000", "$15,000 - $20,000", "$20,000 - $25,000", "$25,000+"]
                 }
             ]
         },
@@ -102,6 +91,7 @@ var json = {
 };
 
 window.survey = new Survey.Model(json);
+
 
 survey
     .onComplete
@@ -122,14 +112,17 @@ survey
                 console.error("Error adding document: ", error);
             });
 
-        // $.post("/api/surveyResult", {
-        //     data: JSON.stringify(result.data)
-        // }).then(function (response) {
+            //storing info in local storage
+            window.localStorage.setItem('surveyResults', JSON.stringify(result.data));
+            window.localStorage.getItem('surveyResults');
+            console.log(localStorage);
+
+            window.location.href='dashboard';
         
         // document
         //     .querySelector('#surveyResult')
-        //     .textContent = "Result JSON:\n" + JSON.stringify(result.data);
-        // });
+        //     .textContent = "Result JSON:\n" + JSON.stringify(result.data.Ethnicity);
+       
         db.collection('SurveyResults').get()
   .then(doc  => {
     if (!doc.exists) {

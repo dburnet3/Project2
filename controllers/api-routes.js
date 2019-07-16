@@ -31,7 +31,7 @@ router.get("/api/user", async (req, res) => res.json((await db.User.findAll({}))
 //   }
 // });
 
- // POST route for saving a new post
+ // POST route for saving survey results
  router.post("/api/surveyResult", function(req, res) {
    console.log(req.body);
     db.surveyResult.create({
@@ -45,7 +45,17 @@ router.get("/api/user", async (req, res) => res.json((await db.User.findAll({}))
       });
   });
 
-
+// //GET route for retrieving tuition cost
+// applicationCache.get("/api/schoolTuition/:OPE_ID", function(req,res){
+//   db.school_tuition_info.findOne({
+//     where:{
+//       OPE_ID: req.params.OPE_ID
+//     }
+//   })
+//   .then(function(dbschool_tuition_info){
+//     res.json(dbschool_tuition_info);
+//   });
+// });
 
 
 module.exports = router;
